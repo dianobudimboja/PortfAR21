@@ -1,49 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://budimboaristides.vercel.com/</loc>
-        <lastmod>2026-04-27</lastmod>
-        <changefreq>weekly</changefreq><?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://budimboaristides.vercel.com/</loc>
+        <loc>https://budimboaristides.vercel.app/</loc>
         <lastmod>2026-04-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://budimboaristides.vercel.com/sobre</loc>
+        <loc>https://budimboaristides.vercel.app/sobre</loc>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://budimboaristides.vercel.com/projetos</loc>
+        <loc>https://budimboaristides.vercel.app/projetos</loc>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://budimboaristides.vercel.com/conhecimento</loc>
+        <loc>https://budimboaristides.vercel.app/conhecimento</loc>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://budimboaristides.vercel.com/contacto</loc>
-        <priority>0.7</priority>
-    </url>
-</urlset>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://budimboaristides.vercel.com/sobre</loc>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://budimboaristides.vercel.com/projetos</loc>
-        <priority>0.9</priority>
-    </url>
-    <url>
-        <loc>https://budimboaristides.vercel.com/conhecimento</loc>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://budimboaristides.vercel.com/contacto</loc>
+        <loc>https://budimboaristides.vercel.app/contacto</loc>
         <priority>0.7</priority>
     </url>
 </urlset>
