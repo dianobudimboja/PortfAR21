@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content" data-aos="fade-up">
+            <div class="hero-photo">
+                <img src="{{ url_for('static', filename='images/ar.jpeg') }}" alt="Aristides Budimbo"
+                    class="profile-photo">
+                <div class="photo-glow"></div>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="highlight">BUDIMBO</span> ARISTIDES
+            </h1>
+            <p class="hero-subtitle">Economista • Eng.º Informático • Mentor Estratégico</p>
+            <p class="hero-description">
+                Combina Análise Económica, Engenharia de Sistemas e Inteligência Comportamental<br>
+                para liderar equipas, desenhar infraestruturas e ajudar na formação de talentos com impacto real.
+            </p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('projetos') }}" class="btn btn-primary">Ver Portfólio</a>
+                <a href="{{ url_for('contacto') }}" class="btn btn-outline">Contactar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number">+95%</div>
+                <div class="stat-label">Estabilidade de Rede</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number">-40%</div>
+                <div class="stat-label">Redução Rotatividade</div>
+            </div>
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number">+70%</div>
+                <div class="stat-label">Retenção Talentos</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Insights Preview -->
+<section class="insights-preview">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Insights & Metodologias</h2>
+            <p>Partilho abordagens que integram Técnica, Gestão e Comportamento Humano</p>
+        </div>
+        <div class="insights-grid">
+            {% for insight in insights %}
+            <div class="insight-card" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="insight-icon">{{ insight.icone }}</div>
+                <h3>{{ insight.titulo }}</h3>
+                <p>{{ insight.descricao|replace('\n', '<br>')|safe }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center" data-aos="fade-up">
+            <a href="{{ url_for('conhecimento') }}" class="btn btn-outline">Ver mais insights →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Carousel -->
+<section class="featured-projects">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2>Projetos em Destaque</h2>
+            <p>Trabalhos que integram Tecnologia, Gestão e Desenvolvimento Humano</p>
+        </div>
+
+        <div class="carousel-container" data-aos="fade-up" id="featuredCarousel">
+            <div class="carousel-slides" id="featuredCarouselSlides"></div>
+            <button class="carousel-btn prev-btn" id="featuredPrevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next-btn" id="featuredNextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-indicators" id="featuredIndicators"></div>
+        </div>
+
+        <div class="text-center" data-aos="fade-up">
+            <a href="{{ url_for('projetos') }}" class="btn btn-primary">Ver todos os Projetos</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

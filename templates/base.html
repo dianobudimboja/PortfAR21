@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Budimbo Aristides - {% block title %}{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!-- Indexação -->
+    <meta name="description"
+        content="Aristides Budimbo - Engenheiro Informático, Economista e Mentor Estratégico. Especialista em infraestrutura de redes, análise de perfis, liderança de equipas e formação técnica em Angola.">
+    <meta name="keywords"
+        content="Budimbo Aristides, Engenheiro Informático, Economista, Mentor, Angola, Redes, Liderança, Formação, Consultoria">
+    <meta name="author" content="Aristides Budimbo">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="language" content="Portuguese">
+    <meta property="og:title" content="Budimbo Aristides Eng. Informático & Economista">
+    <meta property="og:description"
+        content="Portfólio profissional de Aristides Budimbo. Combino análise económica, engenharia de sistemas e inteligência comportamental.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://budimboaristides.vercel.com">
+    <meta property="og:image" content="https://https://budimboaristides.vercel.com/static/images/aristides-perfil.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Budimbo Aristides - Portfólio Profissional">
+    <meta name="twitter:description" content="Engenheiro Informático, Economista e Mentor Estratégico">
+    <link rel="canonical" href="https://budimboaristides.vercel.com">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Budimbo Aristides",
+            "jobTitle": "Engenheiro Informático | Economista | Mentor Estratégico",
+            "url": "https://seudominio.com",
+            "sameAs": [
+                "https://www.linkedin.com/in/budimbo-tshikweji-aristides-88b2a0194/",
+                "https://www.instagram.com/tchillz_prata21?igsh=cGx0MDRyeHFscWtj",
+                "https://github.com/aristidesbudimbo"
+            ],
+            "email": "aristide.thidewalla@gmail.com",
+            "alumniOf": [
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Engenharia Informática"
+                },
+                {
+                    "@type": "CollegeOrUniversity", 
+                    "name": "Economia"
+                }
+            ],
+            "knowsAbout": ["Redes de Computadores", "Liderança de Equipas", "Análise de Perfis", "Gestão de Projetos", "Mentoria"],
+            "worksFor": {
+                "@type": "Organization",
+                "name": "AR21 Consulting",
+                "description": "Consultoria em Tecnologia e Gestão"
+            },
+            "description": "Profissional híbrido que combina engenharia informática, economia e inteligência comportamental para liderar equipas e formar talentos com impacto real em Angola."
+        }
+        </script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="{{ url_for('index') }}">AR<span class="highlight">21</span></a>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}" class="nav-link">Início</a></li>
+                    <li><a href="{{ url_for('sobre') }}" class="nav-link">Sobre</a></li>
+                    <li><a href="{{ url_for('projetos') }}" class="nav-link">Projetos</a></li>
+                    <li><a href="{{ url_for('conhecimento') }}" class="nav-link">Conhecimento</a></li>
+                    <li><a href="{{ url_for('contacto') }}" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Modo escuro">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="downloadCVBtn" class="cv-download-btn" aria-label="Download CV">
+                    <i class="fas fa-download"></i> CV
+                </button>
+                <div class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer com Redes Sociais -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <h4>Siga-me nas Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/tchillz_prata21?igsh=cGx0MDRyeHFscWtj" target="_blank"
+                            class="social-link instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1C9vD1tgc1/?mibextid=wwXIfr" target="_blank"
+                            class="social-link facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@aristides830?_r=1&_t=ZS-95Sq71abFrt" target="_blank"
+                            class="social-link tiktok" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/budimbo-tshikweji-aristides-88b2a0194/" target="_blank"
+                            class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://x.com/BudimboAri68531" target="_blank" class="social-link twitter"
+                            aria-label="Twitter/X">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="https://github.com/aristidesbudimbo" target="_blank" class="social-link github"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-quote">
+                    <p>"Sê Previsível nos Valores. Imprevisível nos Movimentos."</p>
+                </div>
+                <div class="footer-quote">
+                    <p>Desenvolvido por Diano C. Budimbo Já</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>© Budimbo Aristides </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>

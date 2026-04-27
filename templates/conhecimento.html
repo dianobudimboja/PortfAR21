@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Conhecimento{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 data-aos="fade-up">Insights & Metodologias</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Partilho abordagens que integram técnica, gestão e comportamento
+            humano</p>
+    </div>
+</section>
+
+<section class="insights-full">
+    <div class="container">
+        <div class="insights-grid-full">
+            {% for insight in insights %}
+            <div class="insight-card-full" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="insight-icon-large">{{ insight.icone }}</div>
+                <h2>{{ insight.titulo }}</h2>
+                <p>{{ insight.descricao|replace('\n', '<br>')|safe }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Knowledge Images Gallery -->
+        <div class="knowledge-gallery" data-aos="fade-up">
+            <h2>Conhecimento em Ação</h2>
+            <div class="knowledge-grid">
+                {% for imagem in imagens %}
+                <div class="knowledge-card">
+                    <img src="{{ url_for('static', filename='images/' + imagem.url) }}" alt="{{ imagem.titulo }}">
+                    <div class="knowledge-overlay">
+                        <h3>{{ imagem.titulo }}</h3>
+                        <p>{{ imagem.descricao }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="reflexao-section" data-aos="fade-up">
+            <h2>Em Reflexão</h2>
+            <div class="reflexao-questions">
+                <div class="question-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <p>Como equilibrar Eficiência Técnica e Bem-Estar das Equipas?</p>
+                </div>
+                <div class="question-card">
+                    <i class="fas fa-chart-simple"></i>
+                    <p>Que modelos de Liderança funcionam em contextos de Recursos Limitados?</p>
+                </div>
+                <div class="question-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <p>Como formar Profissionais Técnicos para pensarem Estrategicamente?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="metodologia-note" data-aos="fade-up">
+            <div class="note-badge">AR21</div>
+            <p>Sessões são baseadas em Problemas Reais, não em Teoria Abstrata.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

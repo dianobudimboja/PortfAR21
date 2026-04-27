@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 data-aos="fade-up">Perfil Profissional</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Profissional Híbrido: Engenharia Informática e Economia</p>
+    </div>
+</section>
+
+<section class="sobre-content">
+    <div class="container">
+        <div class="sobre-grid">
+            <div class="sobre-text" data-aos="fade-up">
+                <h2>Quem Sou?</h2>
+                <p>Profissional híbrido formado em Engenharia Informática e Economia, com experiência em análise de
+                    perfis, liderança de equipas, formação técnica e gestão de Infraestruturas de Rede.</p>
+
+                <div class="formacao">
+                    <h3>Formação Académica</h3>
+                    <div class="formacao-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Formação em Economia</strong>
+                            <p>Visão Macro, Análise de Custos, Tomada de Decisão Estratégica</p>
+                        </div>
+                    </div>
+                    <div class="formacao-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <strong>Formação em Engenharia Informática</strong>
+                            <p>Arquitetura de Redes, Sistemas Tecnológicos, Desenvolvimento Sistémico</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="competencias">
+                    <h3>Competências-Chave</h3>
+                    <div class="competencias-grid">
+                        <span class="competencia-tag">Análise de Perfil</span>
+                        <span class="competencia-tag">Comportamental</span>
+                        <span class="competencia-tag">Liderança de Equipas</span>
+                        <span class="competencia-tag">Gestão de Projetos</span>
+                        <span class="competencia-tag">Redes e Comunicação</span>
+                        <span class="competencia-tag">Formação Técnica</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sobre-image" data-aos="fade-up" data-aos-delay="100">
+                <img src="{{ url_for('static', filename='images/art.jpeg') }}" alt="Aristides Budimbo">
+
+                <div class="linkedin-integration" id="linkedinWidget">
+                    <i class="fab fa-linkedin"></i>
+                    <div class="linkedin-stats">
+                        <span id="linkedinFollowers">Carregando...</span> Seguidores
+                    </div>
+                    <a href="https://www.linkedin.com/in/budimbo-tshikweji-aristides-88b2a0194/" id="linkedinFollowBtn"
+                        class="linkedin-follow-btn" target="_blank">
+                        <i class="fab fa-linkedin"></i> Seguir
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Gallery -->
+        <div class="gallery-section" data-aos="fade-up">
+            <h2>Galeria de Momentos</h2>
+            <div class="gallery-grid" id="sobreGallery">
+                {% for imagem in imagens %}
+                <div class="gallery-item" data-titulo="{{ imagem.titulo }}" data-categoria="{{ imagem.categoria }}">
+                    <img src="{{ url_for('static', filename='images/' + imagem.url) }}" alt="{{ imagem.titulo }}">
+                    <div class="gallery-overlay">
+                        <h3>{{ imagem.titulo }}</h3>
+                        <span class="gallery-categoria">{{ imagem.categoria }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <div class="timeline-section" data-aos="fade-up">
+            <h2>Trajetória Profissional</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Presente</div>
+                    <div class="timeline-content">
+                        <h3>Mentor Estratégico & Consultor</h3>
+                        <p>Consultoria Independente em Tecnologia, Gestão e Desenvolvimento de Talentos.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020 - 2023</div>
+                    <div class="timeline-content">
+                        <h3>Gestor de Infraestrutura de TI</h3>
+                        <p>Liderança Técnica, Reestruturação de Redes e Formação de Equipas.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2017 - 2020</div>
+                    <div class="timeline-content">
+                        <h3>Analista de Sistemas</h3>
+                        <p>Desenvolvimento e Implementação de Soluções Tecnológicas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-chart-section" data-aos="fade-up">
+            <h2>Competências em Destaque</h2>
+            <canvas id="skillsChart" width="400" height="200"></canvas>
+        </div>
+
+        <div class="filosofia" data-aos="fade-up">
+            <h2>Filosofia de Trabalho</h2>
+            <div class="filosofia-grid">
+                <div class="filosofia-item">
+                    <i class="fas fa-search"></i>
+                    <h3>Análise antes de agir</h3>
+                    <p>Compreender contextos, perfis e restrições antes de propor soluções.</p>
+                </div>
+                <div class="filosofia-item">
+                    <i class="fas fa-flag-checkered"></i>
+                    <h3>Liderar com clareza</h3>
+                    <p>Definir expectativas, delegar com confiança e assumir responsabilidades.</p>
+                </div>
+                <div class="filosofia-item">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3>Formar para transformar</h3>
+                    <p>Não somente ensinar teoria — capacitar para ação real.</p>
+                </div>
+                <div class="filosofia-item">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Pensar em Camadas</h3>
+                    <p>Tecnologia, Pessoas e Economia nunca são tratadas isoladamente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="valores" data-aos="fade-up">
+            <h2>Valores</h2>
+            <blockquote>
+                <p>Integridade, rigor técnico, Desenvolvimento Humano e impacto mensurável. Não procuro ser visto —
+                    procuro ser Indispensável!</p>
+            </blockquote>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightboxModal" class="lightbox">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightboxImage">
+    <div id="lightboxCaption"></div>
+</div>
+{% endblock %}

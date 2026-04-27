@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Projetos{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1 data-aos="fade-up">Projetos & Iniciativas</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Seleção de Trabalhos que integram Tecnologia, Gestão e
+            Desenvolvimento Humano</p>
+    </div>
+</section>
+
+<section class="projetos-list">
+    <div class="container">
+        {% for projeto in projetos %}
+        <div class="projeto-detalhe" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <div class="projeto-detalhe-grid {% if loop.index is odd %}reverse{% endif %}">
+                <!-- Image Carousel for each project -->
+                <div class="projeto-detalhe-image">
+                    <div class="project-carousel-container" data-project-id="{{ projeto.id }}">
+                        <div class="project-carousel-slides" id="projectCarouselSlides{{ projeto.id }}">
+                            {% for imagem in projeto.imagens %}
+                            <div class="project-carousel-slide {% if loop.first %}active{% endif %}">
+                                <img src="{{ url_for('static', filename='images/' + imagem) }}"
+                                    alt="{{ projeto.titulo }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% if projeto.imagens|length > 1 %}
+                        <button class="project-carousel-prev" data-id="{{ projeto.id }}">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="project-carousel-next" data-id="{{ projeto.id }}">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <div class="project-carousel-dots" id="projectDots{{ projeto.id }}">
+                            {% for imagem in projeto.imagens %}
+                            <span class="dot {% if loop.first %}active{% endif %}"
+                                data-index="{{ loop.index0 }}"></span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="projeto-detalhe-content">
+                    <h2>{{ projeto.titulo }}</h2>
+
+                    <div class="projeto-contexto">
+                        <h3>Contexto</h3>
+                        <p>{{ projeto.contexto }}</p>
+                    </div>
+
+                    <div class="projeto-acao">
+                        <h3>Ação</h3>
+                        <p>{{ projeto.acao }}</p>
+                    </div>
+
+                    <div class="projeto-tecnologias">
+                        <h3>Tecnologias & Metodologias</h3>
+                        <div class="tech-tags">
+                            {% for tech in projeto.tecnologias %}
+                            <span>{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="projeto-categorias">
+                        {% for cat in projeto.categorias %}
+                        <span class="categoria-badge">{{ cat }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div class="projeto-resultado">
+                        <h3>Resultado</h3>
+                        <p>{{ projeto.resultado }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="cta-section" data-aos="fade-up">
+    <div class="container">
+        <h2>Interessado em Colaborar?</h2>
+        <p>Consultoria • Mentoria • Formação • Gestão de Projetos</p>
+        <a href="{{ url_for('contacto') }}" class="btn btn-primary">Entrar em Contacto</a>
+    </div>
+</section>
+{% endblock %}
