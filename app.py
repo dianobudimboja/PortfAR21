@@ -233,14 +233,6 @@ def linkedin_profile():
         'profile_url': 'https://www.linkedin.com/in/aristides-budimbo'
     })
 
-@app.route('/robots.txt')
-def robots():
-    return send_from_directory('static', 'robots.txt')
-
-@app.route('/sitemap.xml')
-def sitemap():
-    return send_from_directory('static', 'sitemap.xml')
-
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
 
